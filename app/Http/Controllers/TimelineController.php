@@ -26,6 +26,9 @@ class TimelineController extends Controller
     {
         $request->validate([
             'tweet' => 'required|max:140',
+
         ]);
+        //tweetの登録処理（データベースに登録）
+        //showTimelinePageを実行
     }
 }
