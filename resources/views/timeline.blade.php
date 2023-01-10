@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-3">
-        {!! Form::open(['route' => 'timeline', 'method' => 'POST']) !!}
+        {!! Form::open(['route' => 'postTimeline', 'method' => 'POST']) !!}
             {{ csrf_field() }}
             <div class="row mb-4">
                 {{ Form::text('text', null, ['class' => 'form-control col-9 mr-auto']) }}
