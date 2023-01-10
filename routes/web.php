@@ -21,7 +21,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/timeline', [TimelineController::class, 'showTimelinePage'])->name('timeline');
-Route::post('/timeline', [TimelineController::class, 'postTweet'])->name('timeline');
+Route::post('/timeline', [TimelineController::class, 'postTweet'])->name('postTimeline');
 Route::get('/', function () {
     return view('app');
 });
