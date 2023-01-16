@@ -25,10 +25,21 @@ class TimelineController extends Controller
     public function postTweet(Request $request)
     {
         $request->validate([
-            'tweet' => 'required|max:140',
+            'text' => 'required|max:140',
 
         ]);
+
+        //user_idとる（投稿をした人のuser_idをどうやってもってくるか。）
+        $userId = Auth::id();
+
         //tweetの登録処理（データベースに登録）
+        Tweet::create([
+            'text' => $request['text'],
+            //use_rid追加
+            'user_id' => $userId,
+        ]);
+
         //showTimelinePageを実行
+        $this->showTimelinePage();
     }
 }
