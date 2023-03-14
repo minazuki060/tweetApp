@@ -6,6 +6,7 @@
             {{ csrf_field() }}
             <div class="row mb-4">
                 {{ Form::text('text', null, ['class' => 'form-control col-9 mr-auto']) }}
+                {{ Form::file('file', null, ['class' => 'form-control col-9 mr-auto']) }}
                 {{ Form::submit('ツイート', ['class' => 'btn btn-primary col-2']) }}
             </div>
             {{-- エラー表示 ここから --}}
