@@ -15,12 +15,10 @@ class TimelineController extends Controller
 
     public function showTimelinePage()
     {
-        $tweets = Tweet::latest()->get();
-
+        $tweets = Tweet::with('photo')->latest()->get();
         return view('timeline', [
             'tweets' => $tweets,
         ]);
-         
     }
 
     public function postTweet(Request $request)
