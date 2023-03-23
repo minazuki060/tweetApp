@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Photo;
 
 class Tweet extends Model
 {
@@ -13,4 +14,10 @@ class Tweet extends Model
         'user_id',
         'text',
     ];
+
+    public function photo()
+    {
+        return $this->hasOne(Photo::class);
+    }
 }
+
