@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="container mt-3">
-        {!! Form::open(['route' => 'postTimeline', 'method' => 'POST']) !!}
+        {!! Form::open(['route' => 'postTimeline', 'action' => '/upload', 'enctype' => 'multipart/form-data','method' => 'POST']) !!}
             {{ csrf_field() }}
             <div class="row mb-4">
                 {{ Form::text('text', null, ['class' => 'form-control col-9 mr-auto']) }}
-                {{ Form::file('file', null, ['class' => 'form-control col-9 mr-auto']) }}
+                {{ Form::file('image', null, ['class' => 'form-control col-9 mr-auto']) }}
                 {{ Form::submit('ツイート', ['class' => 'btn btn-primary col-2']) }}
             </div>
             {{-- エラー表示 ここから --}}
@@ -23,7 +23,12 @@
             <div class="pl-3">
                 {{ $tweet->text }}
             </div>
-            <hr>
+        @if(!empty($tweet->photo)) 
+        <img src="{{asset('storage/sample/'. $tweet->photo->file_name) }}">
+        @endif
         @endforeach
+                
+        
+
     </div>
 @endsection
