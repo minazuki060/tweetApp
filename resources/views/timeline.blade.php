@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{{ Breadcrumbs::render('timeline') }}
     <div class="container mt-3">
         {!! Form::open(['route' => 'postTimeline', 'action' => '/upload', 'enctype' => 'multipart/form-data','method' => 'POST']) !!}
             {{ csrf_field() }}
