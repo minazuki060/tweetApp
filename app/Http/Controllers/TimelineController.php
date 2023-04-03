@@ -16,6 +16,7 @@ class TimelineController extends Controller
     public function showTimelinePage()
     {
         $tweets = Tweet::with('photo')->latest()->get();
+        $tweets = Tweet::with('photo')->paginate(10);
         return view('timeline', [
             'tweets' => $tweets,
         ]);
@@ -58,4 +59,5 @@ class TimelineController extends Controller
         //showTimelinePageを実行
         $this->showTimelinePage();
     }
+    
 }

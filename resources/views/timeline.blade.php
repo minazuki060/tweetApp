@@ -28,6 +28,8 @@
         <img src="{{asset('storage/sample/'. $tweet->photo->file_name) }}">
         @endif
         @endforeach
+
+        {{$tweets->links()}}
                 
         
 
